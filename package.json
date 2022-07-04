@@ -4,7 +4,6 @@
     "description": "Month View package demo",
     "main": "src/index.tsx",
     "scripts": {
-        "test": "test",
         "dev": "vite dev"
     },
     "repository": {
