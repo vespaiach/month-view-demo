@@ -5,23 +5,8 @@ import './app.css';
 
 import * as React from 'react';
 
-import { MonthView } from '@vespaiach/month-view';
+import { MonthView, MONTH_NAMES } from '@vespaiach/month-view';
 import { MonthNum, Event as EventType } from '@vespaiach/month-view/dist/type';
-
-const MONTHS = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-];
 
 const today = new Date();
 const todayDate = today.getDate();
@@ -59,7 +44,7 @@ export default function App() {
     ]);
 
     return (
-        <div className="flex flex-col px-11 py-9 min-w-[800px] min-h-[600px] m-12 bg-white rounded-md shadow-lg gap-4">
+        <div className="flex flex-col px-11 py-9 min-w-[800px] min-h-[600px] bg-white rounded-md shadow-lg gap-4 h-full">
             <div className="grid justify-items-center grid-cols-[auto_1fr_auto]">
                 <div>
                     <button
@@ -84,14 +69,14 @@ export default function App() {
                     </button>
                 </div>
                 <h3 className="text-md font-semibold text-slate-600">{`${
-                    MONTHS[date.getMonth()]
+                    MONTH_NAMES[date.getMonth()]
                 } - ${date.getFullYear()}`}</h3>
                 <div>
                     <button
                         onClick={() => {
                             setDate(new Date());
                         }}
-                        className="border-solid border-2 border-indigo-300 rounded-md w-14 text-slate-400"
+                        className="border-solid border-2 border-indigo-300 rounded-md w-14 text-rose-400"
                     >
                         today
                     </button>
@@ -104,8 +89,9 @@ export default function App() {
                 events={events}
                 onClick={(dt, events = []) => {
                     alert(`
-                        On Date: ${dt.toLocaleDateString()}
-                        Events: ${events.map((e) => `${e.title}\n`)}
+On Date: ${dt.toLocaleDateString()}
+Events: 
+${events.map((e) => ` - ${e.title}`).join('\n')}
                     `);
                 }}
             />

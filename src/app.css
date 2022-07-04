@@ -10,4 +10,8 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 0.9rem;
     }
+    #root {
+        height: 100vh;
+        padding: 3rem
+    }
 }
